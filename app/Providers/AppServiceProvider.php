@@ -19,7 +19,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        if ($_ENV["HTTPS_SET"] == 'true') {
+        if (strtolower($_ENV["HTTPS_SET"]) == 'true') {
             $this->app['request']->server->set('HTTPS', true);
 
             if ($this->app->environment('production')) {
