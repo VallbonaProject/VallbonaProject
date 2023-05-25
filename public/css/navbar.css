@@ -204,7 +204,7 @@ main {
 
 #toggleButton {
     background-color: var(--background-color-1);
-    border-left: 0.5px solid var(--text-color);
+    border-left: 0.5px solid #595c5f;
     border-radius: 0%;
     color: var(--text-color);
     font-size: larger;

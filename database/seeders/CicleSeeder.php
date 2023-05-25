@@ -15,7 +15,7 @@ class CicleSeeder extends Seeder
     {
         //
         DB::table('cicles')->insert([
-            'name' => "Desenvolupament d'aplicacions web",
+            'name' => "Desenvolupament aplicacions web",
             'shortname' => "DAW"
         ]);
     }

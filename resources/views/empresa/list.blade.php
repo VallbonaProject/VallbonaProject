@@ -131,7 +131,7 @@
                 <label for="estadas">{{ trans('translation.estades') }}:</label>
             </div>
             <div class="col-lg-4 col-9">
-                <div class="row">
+                <div class="row g-0">
                     <div class="col-lg-5 col-5">
                         @if (isset($request->minEstadas) && $request->minEstadas != "")
                         <input class="form-control" type="number" id="minEstadas" placeholder="{{ trans('translation.min') }}" name="minEstadas" min="0" value="{{ $request->minEstadas }}" />
@@ -153,7 +153,7 @@
                 <label for="valoracio">{{ trans('translation.valoration') }}:</label>
             </div>
             <div class="col-lg-4 col-9">
-                <div class="row">
+                <div class="row g-0">
                     <div class="col-lg-5 col-5">
                         @if (isset($request->minValoracio) && $request->minValoracio != "")
                         <input class="form-control" type="number" id="minValoracio" placeholder="{{ trans('translation.min') }}" name="minValoracio" min="0" max="10" value="{{ $request->minValoracio }}" />
@@ -331,16 +331,16 @@
                             elem.addEventListener('click', () => {
                                 var dataId = elem.dataset.id;
                                 var form = document.querySelector('#confirmDelete form');
-                                form.action = "empresa/delete/" + dataId;
+                                form.action = "delete/" + dataId;
                                 console.log(form.action);
 
                                 var dataName = elem.dataset.name;
-                                document.getElementById("nombreEmpresa").innerHTML = dataName;
+                                document.getElementById("nombreDelete").innerHTML = dataName;
                             });
                         });
                     </script>
                     @csrf
-                    <p>{{ trans('translation.confirm_delete') }} <span id="nombreEmpresa"></span>?</p>
+                    <p>{{ trans('translation.confirm_delete') }} <span id="nombreDelete"></span>?</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">{{ trans('translation.cancel') }}</button>
