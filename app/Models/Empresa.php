@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Empresa extends Model
 {
     use HasFactory;
-    
+
     public function poblacio()
     {
         return $this->belongsTo(Poblacio::class);
@@ -35,8 +35,14 @@ class Empresa extends Model
 
     public function contactes()
     {
-        $count = $this->join('contactes', 'contactes.empresa_id', '=', 'empresas.id')->where('empresa_id', $this->id)->count('contactes.id');
-        $firstContact = $this->join('contactes', 'contactes.empresa_id', '=', 'empresas.id')->where('empresa_id', $this->id)->first('contactes.*');
+        $count = $this  ->join('contactes', 'contactes.empresa_id', '=', 'empresas.id')
+                        ->where('empresa_id', $this->id)
+                        ->count('contactes.id');
+
+        $firstContact = $this   ->join('contactes', 'contactes.empresa_id', '=', 'empresas.id')
+                                ->where('empresa_id', $this->id)
+                                ->orderBy('created_at', 'desc')
+                                ->first('contactes.*');
 
         if ($count == 0) {
             return "Ningun";

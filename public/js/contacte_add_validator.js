@@ -1,6 +1,6 @@
 let contacte_add_control = {
     "name": [isAlphabet, "El nom no pot tenir números o símbols"],
-    "empresa_id": [madeSelection, "Cal escollir una comarca"],
+    "empresa_id": [madeSelection, "Cal escollir una empresa"],
     "email": [emailValidatorOrNull, "Aquest correu electrònic no és valid"],
     "phonenumber": [isPhonenumberOrNull, "Aquest telèfon no es valid"]
 };
@@ -27,7 +27,7 @@ function formValidator(e) {
             }
         }
     }
-    
+
     if (!result) {
         if (first_error != null) {
             first_error.focus();
@@ -43,12 +43,12 @@ function ErrorVisibility(e){
 }
 
 function tractarError(elem, noError, msgError){
-    
+
     if (noError){
         elem.parentElement.classList = "col-md-10 col-sm-10"
         document.getElementById(elem.name + "-add-contacte-error").classList = "error"
         document.getElementById(elem.name + "-add-contacte-error").innerHTML = "";
-    } else { 
+    } else {
         elem.parentElement.classList = "col-md-5 col-sm-5"
         document.getElementById(elem.name + "-add-contacte-error").classList = "error col-md-5 col-sm-5"
         document.getElementById(elem.name + "-add-contacte-error").innerHTML = msgError;

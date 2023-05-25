@@ -26,7 +26,7 @@ class EmpresaController extends BaseController
 
   function list(Request $request)
   {
-    if (Auth::user()->first_login == null) { 
+    if (Auth::user()->first_login == null) {
       return redirect()->route('first_login', Auth::user()->id);
     } else {
       $empresas = Empresa::join('poblacios', 'empresas.poblacio_id', '=', 'poblacios.id')->
@@ -109,7 +109,7 @@ class EmpresaController extends BaseController
       return redirect()->route('empresa_list');
     }
     $poblacio = Poblacio::find($empresa->poblacio_id);
-    $contactes = Contacte::orderBy('name', 'asc')->where('empresa_id', '=', $empresa->id)->get();
+    $contactes = Contacte::orderBy('created_at', 'desc')->where('empresa_id', '=', $empresa->id)->get();
     $estades = Estada::orderBy('student_name', 'asc')->where('empresa_id', '=', $empresa->id)->get();
     $users = User::all();
     $cursos = Curs::all();
@@ -135,7 +135,7 @@ class EmpresaController extends BaseController
         $empresa->save();
       }
     }
-    
+
     return redirect()->route('empresa_list');
   }
 

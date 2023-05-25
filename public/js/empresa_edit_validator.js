@@ -217,7 +217,7 @@ function madeSelectionContacte(elem, helperMsg) {
 }
 
 function emailValidatorContacte(elem, helperMsg) {
-    var emailExp = /^[\w\-\.\+]+\@[a-zA-Z0-9\.\-]+\.[a-zA-z0-9]{2,4}$/;
+    var emailExp = /^([\wçÇñÑ\-\.\+]+@[a-zA-Z0-9çÇñÑ\.\-]+\.[a-zA-Z0-9çÇñÑ]{2,})?$/;
     var result = true;
     if (!elem.value.match(emailExp)) {
         result = false;
@@ -228,7 +228,7 @@ function emailValidatorContacte(elem, helperMsg) {
 }
 
 function isPhonenumberContacte(elem, helperMsg) {
-    var phoneExp = /^[0-9]{9}$/;
+    var phoneExp = /^([0-9]{9})?$/;
     var result = false;
     if (elem.value.match(phoneExp)) {
         result = true;
