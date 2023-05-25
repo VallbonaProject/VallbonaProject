@@ -331,7 +331,7 @@
                             elem.addEventListener('click', () => {
                                 var dataId = elem.dataset.id;
                                 var form = document.querySelector('#confirmDelete form');
-                                form.action = "empresa/delete/" + dataId;
+                                form.action = "delete/" + dataId;
                                 console.log(form.action);
 
                                 var dataName = elem.dataset.name;
