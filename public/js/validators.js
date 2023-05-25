@@ -134,7 +134,7 @@ function checkedBox(elem, helperMsg) {
 }
 
 function isCIF(elem, helperMsg) {
-    var cifExp = /^[A-Z]\-[0-9]{8}$/gm;
+    var cifExp = /^[A-Z]{1}[0-9]{8}$/gm;
     var result = false;
     if (elem.value.match(cifExp)) {
         result = true;
