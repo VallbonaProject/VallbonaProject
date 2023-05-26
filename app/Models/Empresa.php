@@ -48,7 +48,12 @@ class Empresa extends Model
             }
         } else if ($count > 1) {
             $count--;
-            return $firstContact->name . ": " . $firstContact->phonenumber . ", ...(" . $count . ")";
+            if ($firstContact->phonenumber == "") {
+                return $firstContact->name . ": " . $firstContact->email . ", ...(" . $count . ")";
+            } else {
+                return $firstContact->name . ": " . $firstContact->phonenumber . ", ...(" . $count . ")";
+            }
+            
         }
     }
 }
